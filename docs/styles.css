@@ -1,19 +1,53 @@
+header {
+    position: fixed;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12rem;
+    background-color: #bfd1e5ad;
+    backdrop-filter: blur(8px);
+    color: rgb(0, 255, 255);
+    padding: 0.5rem 1.5rem;
+    border-radius: 5rem;
+    z-index: 1000;
+}
+
+.logo span {
+    color: rgb(73, 21, 21);
+}
+
+.top-bar {
+    display: flex;
+    gap: 2rem;
+}
+
+
+/* == Body == */
+
 body {
+    background-image: url(background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     margin: 0;
 }
 
 #clock-container {
+    margin-top: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 #clock {
-    font-size: 7rem;
+    font-size: 5rem;
     font-family: monospace;
-    color: #660505;
+    color: #660505a6;
     backdrop-filter: blur(5px);
     border-radius: 15px;
     padding: 1rem 1rem;
@@ -22,12 +56,24 @@ body {
 }
 
 #date {
-    font-size: 5rem;
+    font-size: 4rem;
     font-family: monospace;
-    color: #660505;
+    color: #66050580;
     backdrop-filter: blur(5px);
     border-radius: 15px;
     padding: 1rem 1rem;
     font-weight: bold;
     text-align: center;
+    border: rgb(245, 0, 0);
+}
+
+.clock-background {
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    padding: 0.5rem 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(2, 28, 43, 0.082);
+    border: 5px solid rgba(117, 114, 114, 0.116);
+
 }
