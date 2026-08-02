@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <div class="logo"><span>Time-Tracker</span></div>
+        <div class="logo"><img src="logo.png"></div>
 
         <ul class="top-bar">
             <li>
@@ -30,6 +30,23 @@
 
         </ul>
     </header>
+
+
+    <div id="stopwatch">
+        <h1 id="SW">Stop Watch</h1>
+
+        <div id="container">
+            <div id="display">
+                00:00:00
+            </div>
+            <div id="controls">
+                <button id="startBtn" onclick="start()">Start</button>
+                <button id="stopBtn" onclick="stop()">Stop</button>
+                <button id="resetBtn" onclick="reset()">Reset</button>
+            </div>
+        </div>
+
+    </div>
 
 
     <div id="clock-container">

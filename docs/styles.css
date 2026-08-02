@@ -6,18 +6,24 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12rem;
+    gap: 10rem;
     background-color: #bfd1e5ad;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(20px);
     color: rgb(0, 255, 255);
     padding: 0.5rem 1.5rem;
     border-radius: 5rem;
     z-index: 1000;
 }
 
-.logo span {
-    color: rgb(73, 21, 21);
+.logo img {
+    width: 35%;
 }
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+
 
 .top-bar {
     display: flex;
@@ -34,6 +40,18 @@ body {
     background-size: cover;
     background-attachment: fixed;
     margin: 0;
+}
+
+#stopwatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+    color: white;
+}
+
+#display {
+    font-size: 31px;
 }
 
 #clock-container {
