@@ -1,3 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    text-decoration: none;
+    scroll-behavior: smooth;
+    list-style: none;
+
+}
+
+
 header {
     position: fixed;
     top: 0.5rem;
@@ -9,14 +21,14 @@ header {
     gap: 10rem;
     background-color: #bfd1e5ad;
     backdrop-filter: blur(2px);
-    color: rgb(0, 255, 255);
+    color: rgb(255, 0, 13);
     padding: 0.5rem 1.5rem;
     border-radius: 5rem;
     z-index: 1000;
 }
 
 .logo img {
-    width: 35%;
+    width: 15%;
 }
 
 .logo img:hover {
@@ -67,18 +79,34 @@ body {
 }
 
 #controls button {
-    font-size: 1rem;
+    font-size: 0.95rem;
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
     font-weight: bold;
-    margin: 5px;
+    margin: 4px;
+}
+
+
+#startBtn {
+    background-color: rgba(0, 128, 0, 0.288);
+    color: rgba(172, 255, 47, 0.664);
+}
+
+#stopBtn {
+    background-color: rgba(128, 0, 0, 0.288);
+    color: rgba(255, 47, 47, 0.664);
+}
+
+#resetBtn {
+    background-color: rgba(128, 126, 0, 0.288);
+    color: rgba(255, 241, 47, 0.664);
 }
 
 #container {
     color: rgb(248, 248, 248);
-    background-color: rgba(36, 2, 99, 0.164);
-    backdrop-filter: blur(5px);
+    background-color: rgba(36, 2, 99, 0);
+    backdrop-filter: blur(10px);
     padding: 1rem;
     border: 5px solid rgba(0, 0, 0, 0.253);
     width: 100%;
@@ -100,7 +128,7 @@ body {
     min-width: 280px;
     min-height: 220px;
     color: rgb(240, 242, 248);
-    background-color: #f0f3f72a;
+    background-color: #f0f3f700;
     border-radius: 10px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -116,7 +144,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0.6rem 1rem;
-    background: linear-gradient(#00316dd2, #c7ccd380);
+    background: linear-gradient(#00316de7, #c7ccd3e1);
     border-bottom: 1px solid #a9aeb5;
     cursor: move;
     user-select: none;
@@ -180,6 +208,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 30vh;
 }
 
 #clock {

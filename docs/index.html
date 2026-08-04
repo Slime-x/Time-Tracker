@@ -14,14 +14,18 @@
 
         <ul class="top-bar">
             <li>
-                <a href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
+                <a href="#" onclick="openWindow('stopwatch-window'); return false;">Timer </a>
             </li>
+
+            <li>
+
+                <a href="#" onclick="openWindow('music-window'); return false;">Music</a>
+            </li>
+
             <li>
                 <a href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
             </li>
-            <li>
-                <a href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
-            </li>
+
             <li>
                 <a href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
             </li>
@@ -31,6 +35,16 @@
         </ul>
     </header>
 
+    /* ========= Clock ========= */
+
+    <div id="clock-container">
+        <div class="clock-background">
+            <div id="clock"></div>
+            <div id="date"></div>
+        </div>
+    </div>
+
+    /* ========= Stop Watch ========== */
 
     <div id="stopwatch-window" class="os-window">
         <div class="window-titlebar">
@@ -57,12 +71,37 @@
     </div>
 
 
-    <div id="clock-container">
-        <div class="clock-background">
-            <div id="clock"></div>
-            <div id="date"></div>
+    /* =========== Music =========== */
+    <div id="music-window" class="os-window">
+        <div id="window-titlebar">
+            <span class="window-title">Music</span>
+            <div class="window-buttons">
+                <button class="window-btn" onclick="closeWindow('music-window')" aria-label="Close">&times;</button>
+            </div>
         </div>
+        <div class="window-body">
+            <div id="music-player">
+                <div class="music-categories">
+                    <button class="cat-btn active" onclick="switchCategory('lofi', this)">Lo-Fi</button>
+                    <button class="cat-btn active" onclick="switchCategory('nature', this)">Ambient</button>
+                    <button class="cat-btn active" onclick="switchCategory('piano', this)">Rap</button>
+                    <button class="cat-btn active" onclick="switchCategory('synth', this)">IDFK</button>
+                </div>
+
+                <div class="tracck-row" id="track-row"></div>
+
+                <div class="now-playing-bar">
+                    <span id="now-playing-label">No music Playing</span>
+                    <div id="now-playing-controls">
+                        <button id="lockBtn" onclick="toggleLock()">🔓 Repeat Off</button>
+                        <button onclick="stopMusic()">⏹ No Music</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 
     <script src="index.js"></script>
 </body>
