@@ -32,18 +32,15 @@
     </header>
 
 
-
-    <div id="stopwatch-window" class="window">
-        <div id="window-titlebar">
+    <div id="stopwatch-window" class="os-window">
+        <div class="window-titlebar">
             <span class="window-title">Stop Watch</span>
-            <div id="window-buttons">
+            <div class="window-buttons">
                 <button class="window-btn" onclick="closeWindow('stopwatch-window')" aria-label="Close">&times;</button>
             </div>
         </div>
-        <div class="Window-body">
+        <div class="window-body">
             <div id="stopwatch">
-                <h1 id="SW">Stop Watch</h1>
-
                 <div id="container">
                     <div id="display">
                         00:00:00
@@ -54,10 +51,11 @@
                         <button id="resetBtn" onclick="reset()">Reset</button>
                     </div>
                 </div>
-
             </div>
         </div>
+        <div class="window-resize-handle"></div>
     </div>
+
 
     <div id="clock-container">
         <div class="clock-background">
