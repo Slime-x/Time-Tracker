@@ -8,7 +8,7 @@ header {
     justify-content: center;
     gap: 10rem;
     background-color: #bfd1e5ad;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(2px);
     color: rgb(0, 255, 255);
     padding: 0.5rem 1.5rem;
     border-radius: 5rem;
@@ -43,16 +43,47 @@ body {
 }
 
 #stopwatch {
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 20vh;
-    color: white;
 }
 
 #display {
-    font-size: 31px;
+    font-size: 10rem;
+    font-family: monospace;
+    text-shadow: 5px 5px 3px black;
 }
+
+#controls {
+    justify-content: center;
+    text-align: center;
+}
+
+#controls button {
+    font-size: 30px;
+}
+
+#SW {
+    /* Heading of stop watch. */
+    font-size: 2rem;
+    color: greenyellow;
+    background-color: Red;
+}
+
+#container {
+    color: red;
+    background-color: White;
+    padding: 5px 5px;
+    border: 5px solid black;
+}
+
+
+
+
+
+/* === CLOCK === */
 
 #clock-container {
     margin-top: 40vh;
@@ -94,4 +125,86 @@ body {
     background-color: rgba(2, 28, 43, 0.082);
     border: 5px solid rgba(117, 114, 114, 0.116);
 
+}
+
+
+
+
+/* ========= OS Window Type Design ========= */
+
+.os-window {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    min-width: 280px;
+    min-height: 220px;
+    background-color: #eef1f5;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.os-window.open {
+    display: flex;
+}
+
+.window-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+    background: linear-gradient(#dfe4ea, #c7ccd3);
+    border-bottom: 1px solid #a9aeb5;
+    cursor: move;
+    user-select: none;
+    flex-shrink: 0;
+
+}
+
+.window-title {
+    font-family: monospace;
+    font-weight: bold;
+    color: #333;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.window-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: #ff5f57;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.window-btn:hover {
+    filter: brightness(1.1);
+}
+
+.window-body {
+    flex: 1;
+    overflow: auto;
+    padding: 0;
+
+}
+
+.window-resize-handle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: nwse-resize;
+    background: linear-gradient(135deg, transparent 50%, #9aa0a8 50%);
 }

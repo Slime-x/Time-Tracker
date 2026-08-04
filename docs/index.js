@@ -1,4 +1,4 @@
-// Digital Clock //
+// Digital Clock 
 
 function updateClock() {
 
@@ -25,3 +25,34 @@ function updateClock() {
 
 updateClock();
 setInterval(updateClock, 1000);
+
+// ========= STOP WATCH =========
+
+
+
+
+
+
+
+
+
+
+
+// ======== Window ==============
+
+let topZ = 10;
+
+function bringToFront(win) {
+    topZ += 1;
+    win.style.zIndex = topZ;
+}
+
+function openWindow(id) {
+    const win = document.getElementById(id);
+    if (!win) return;
+
+    if (!win.dataset.placed) {
+        const w = 420;
+        const h = 320;
+    }
+}
