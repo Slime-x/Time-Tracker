@@ -244,3 +244,104 @@ body {
     border: 5px solid rgba(117, 114, 114, 0.116);
 
 }
+
+
+/* ======== Music ======== */
+
+#music-player {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.music-categories {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cat-btn.active {
+    background: rgb(0, 255, 255);
+    color: #001010;
+    border-color: rgb(0, 255, 255);
+    font-weight: bold;
+}
+
+.track-row {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    flex: 1;
+}
+
+.track-card {
+    flex: 0 0 120px;
+    scroll-snap-align: start;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.15, border-color 0.15s;
+}
+
+.track-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 255, 255);
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+}
+
+.track-card.playing {
+    border-color: rgb(0, 255, 255);
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+}
+
+.track-card span {
+    display: block;
+    font-size: 0.8rem;
+    color: #dfe6f0;
+    font-family: monospace;
+}
+
+.now-playing-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#now-playing-label {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #dfe6f0;
+}
+
+.now-playing-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.now-playing-controls button {
+    background: rgba(255, 255, 255, 0.08);
+    color: #dfe6f0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+#lockBtn.locked {
+    background: rgb(0, 255, 255);
+    color: #001018;
+    border-color: rgb(0, 255, 255);
+    font-weight: bold;
+}

@@ -178,3 +178,81 @@ function initWindow(win) {
 }
 
 document.querySelectorAll(".os-window").forEach(initWindow);
+
+// ======= Music =====
+
+const musicLibrary = {
+    lofi: [
+        { title: "Title 1", src: "music/prom_queen.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 1", src: "music/here_with_me.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 1", src: "music/i_want.mp3", cover: "music/pic/1.jpg" },
+    ],
+
+    ambient: [
+        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+    ],
+
+    smth1: [
+        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+    ],
+
+    smth2: [
+        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+    ]
+
+    // If you wanna add more categories just add ',' of ] in smth2 i.e  ], at last then follow the same thing i did on top. and the last category doesnt need ','    
+};
+
+const musicAudio = document.getElementById("musicAudio");
+let currentCategory = "lofi";
+
+function renderTrackRow(category) {
+    const row = document.getElementById("track-row");
+    row.innerHTML = "";
+    musicLibrary[category].forEach(track => {
+        const card = document.createElement("div");
+        card.className = "track-card";
+        card.innerHTML = `<img src="${track.cover}" alt="${track.title}"><span>${track.title}</span>`;
+        card.onclick = () => playTrack(track, card);
+        row.appendChild(card);
+    });
+
+}
+
+function switchCategory(category, btn) {
+    currentCategory = category;
+    document.querySelectorAll(".ctn-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderTrackRow(category);
+}
+
+function playTrack(track, cardEl) {
+    musicAudio.src = track.src;
+    musicAudio.play();
+    document.querySelectorAll(".track-card").forEach(c => c.classList.remove("playing"));
+    cardEl.classList.add("playing");
+    document.getElementById("now-playing-label").textContent = track.title;
+}
+
+function stopMusic() {
+    musicAudio.onpause();
+    musicAudio.remnoveAttribute("src");
+    musicAudio.onload();
+    document.querySelectorAll(".track-card").forEach(c => c.classList.remove("playing"));
+    document.getElementById("now-playing-label").textContent = "No Music Playing";
+}
+
+function toggleLock() {
+    musicAudio.loop = !musicAudio.loop;
+    const bth = document.getElementById("lockBtn");
+    btn.textContent = musicAudio.loop ? "🔒 Repeat On" : "🔓 Repeat Off";
+    btn.classList.toggle("locked", musicAudio.loop);
+}
+
+renderTrackRow(currentCategory);
