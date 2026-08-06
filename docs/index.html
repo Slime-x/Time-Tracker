@@ -60,9 +60,9 @@
                         00:00:00
                     </div>
                     <div id="controls">
-                        <button id="startBtn" onclick="start()">Start</button>
-                        <button id="stopBtn" onclick="stop()">Stop</button>
-                        <button id="resetBtn" onclick="reset()">Reset</button>
+                        <button class="SWbtn" id="startBtn" onclick="start()">Start</button>
+                        <button class="SWbtn" id="stopBtn" onclick="stop()">Stop</button>
+                        <button class="SWbtn" id="resetBtn" onclick="reset()">Reset</button>
                     </div>
                 </div>
             </div>
@@ -97,9 +97,11 @@
                         <button onclick="stopMusic()">⏹ No Music</button>
                     </div>
                 </div>
+
+                <audio id="musicAudio"></audio>
             </div>
         </div>
-
+        <div class="window-resize-handle"></div>
     </div>
 
 

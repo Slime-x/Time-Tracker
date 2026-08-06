@@ -195,15 +195,15 @@ const musicLibrary = {
     ],
 
     smth1: [
-        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 2", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 2", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 2", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
     ],
 
     smth2: [
-        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 3", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 3", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Title 3", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
     ]
 
     // If you wanna add more categories just add ',' of ] in smth2 i.e  ], at last then follow the same thing i did on top. and the last category doesnt need ','    
@@ -218,7 +218,9 @@ function renderTrackRow(category) {
     musicLibrary[category].forEach(track => {
         const card = document.createElement("div");
         card.className = "track-card";
-        card.innerHTML = `<img src="${track.cover}" alt="${track.title}"><span>${track.title}</span>`;
+        card.innerHTML = `
+            <img class="cover-img" src="${track.cover}" alt="${track.title}">
+            <span>${track.title}</span>`;
         card.onclick = () => playTrack(track, card);
         row.appendChild(card);
     });
@@ -227,30 +229,32 @@ function renderTrackRow(category) {
 
 function switchCategory(category, btn) {
     currentCategory = category;
-    document.querySelectorAll(".ctn-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     renderTrackRow(category);
 }
 
 function playTrack(track, cardEl) {
     musicAudio.src = track.src;
-    musicAudio.play();
+    musicAudio.play().catch(err => console.error("Play Failed", err));
     document.querySelectorAll(".track-card").forEach(c => c.classList.remove("playing"));
     cardEl.classList.add("playing");
     document.getElementById("now-playing-label").textContent = track.title;
 }
 
 function stopMusic() {
-    musicAudio.onpause();
-    musicAudio.remnoveAttribute("src");
-    musicAudio.onload();
+    musicAudio.pause();
+    musicAudio.removeAttribute("src");
+    musicAudio.load();
+
     document.querySelectorAll(".track-card").forEach(c => c.classList.remove("playing"));
     document.getElementById("now-playing-label").textContent = "No Music Playing";
 }
 
 function toggleLock() {
     musicAudio.loop = !musicAudio.loop;
-    const bth = document.getElementById("lockBtn");
+    const btn = document.getElementById("lockBtn");
+
     btn.textContent = musicAudio.loop ? "🔒 Repeat On" : "🔓 Repeat Off";
     btn.classList.toggle("locked", musicAudio.loop);
 }
