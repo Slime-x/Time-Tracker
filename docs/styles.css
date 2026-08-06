@@ -28,7 +28,7 @@ header {
 }
 
 .logo img {
-    width: 15%;
+    width: 20%;
 }
 
 .logo img:hover {
@@ -278,14 +278,14 @@ body {
 
 .cat-btn {
     display: flex;
-    background: rgba(255, 0, 0, 0.171);
+    background: rgba(0, 255, 255, 0.3);
     color: white;
     border-radius: 10px;
     justify-content: center;
     text-align: center;
     padding: 1rem 1rem;
     line-height: 0.1rem;
-    border-color: rgb(255, 0, 0);
+    border-color: rgb(0, 255, 255);
     font-weight: bold;
     cursor: pointer;
 }
@@ -295,18 +295,20 @@ body {
 }
 
 .cat-btn.active {
-    background: rgba(0, 255, 255, 0.3);
+    background: rgba(255, 0, 0, 0.171);
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     padding: 1rem 1rem;
-    border-color: rgb(0, 255, 255);
+    transform: scale(1.05);
+    border-color: rgb(255, 0, 0);
     font-weight: bold;
     cursor: pointer;
 }
 
 .track-row {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
     padding: 1rem;
     overflow-x: auto;
@@ -315,13 +317,17 @@ body {
 }
 
 .track-card {
-    flex: 0 0 120px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+
+    justify-content: flex-start;
     scroll-snap-align: start;
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(3, 3, 3, 0.171);
+    border: 3px solid rgba(255, 255, 255, 0.76);
     border-radius: 10px;
     padding: 0.5rem;
-    text-align: center;
     cursor: pointer;
     transition: transform 0.15, border-color 0.15s;
 }
@@ -333,8 +339,9 @@ body {
 }
 
 .track-card.playing {
-    border-color: rgb(0, 255, 255);
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+    border-color: rgb(255, 0, 0);
+    background-color: rgba(104, 2, 2, 0.212);
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
 }
 
 .track-card span {
@@ -345,8 +352,8 @@ body {
 }
 
 .cover-img {
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
     object-fit: cover;
     border-radius: 8px;
 }
@@ -364,11 +371,14 @@ body {
     font-family: monospace;
     font-size: 0.85rem;
     color: #dfe6f0;
+    padding: 5px 5px;
+
 }
 
 .now-playing-controls {
     display: flex;
     gap: 0.5rem;
+    color: pink;
 }
 
 .now-playing-controls button {
@@ -383,8 +393,8 @@ body {
 }
 
 #lockBtn.locked {
-    background: rgb(0, 255, 255);
-    color: #001018;
-    border-color: rgb(0, 255, 255);
+    background: rgba(0, 255, 255, 0.25);
+    color: rgba(252, 252, 252, 0.815);
+    border-color: rgba(0, 255, 255, 0.5);
     font-weight: bold;
 }

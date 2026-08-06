@@ -183,9 +183,9 @@ document.querySelectorAll(".os-window").forEach(initWindow);
 
 const musicLibrary = {
     lofi: [
-        { title: "Title 1", src: "music/prom_queen.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 1", src: "music/here_with_me.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 1", src: "music/i_want.mp3", cover: "music/pic/1.jpg" },
+        { title: "Prom Queen", src: "music/prom_queen.mp3", cover: "music/pic/1.jpg" },
+        { title: "Here With Me", src: "music/here_with_me.mp3", cover: "music/pic/1.jpg" },
+        { title: "Could I get What I want", src: "music/i_want.mp3", cover: "music/pic/1.jpg" },
     ],
 
     ambient: [
