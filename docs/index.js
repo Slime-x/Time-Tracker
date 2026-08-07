@@ -27,10 +27,10 @@ updateClock();
 setInterval(updateClock, 1000);
 
 
-// == Stopwatch ==
+// ========= Stopwatch ==========
 
-let swElapsed = 0;      // milliseconds accumulated before the current run
-let swStartedAt = null; // timestamp when the current run started, or null if stopped
+let swElapsed = 0;
+let swStartedAt = null;
 let swInterval = null;
 
 function formatSW(ms) {
@@ -47,13 +47,13 @@ function renderSW() {
 }
 
 function start() {
-    if (swStartedAt) return; // already running
+    if (swStartedAt) return;
     swStartedAt = Date.now();
     swInterval = setInterval(renderSW, 1000);
 }
 
 function stop() {
-    if (!swStartedAt) return; // already stopped
+    if (!swStartedAt) return;
     swElapsed += Date.now() - swStartedAt;
     swStartedAt = null;
     clearInterval(swInterval);
@@ -68,10 +68,8 @@ function reset() {
 }
 
 
-// == Window Manager ==
-// Handles opening/closing "app" windows, dragging by the titlebar,
-// resizing from the corner handle, and click-to-front stacking —
-// basically the bare minimum to feel like a desktop OS.
+// =========== Window Manager ===========
+
 
 let topZ = 10;
 
@@ -84,8 +82,7 @@ function openWindow(id) {
     const win = document.getElementById(id);
     if (!win) return;
 
-    // First time opening: give it a sane default position/size
-    // roughly centered, only once, so re-opening keeps where you left it.
+
     if (!win.dataset.placed) {
         const w = 420;
         const h = 320;
@@ -110,16 +107,16 @@ function initWindow(win) {
     const titlebar = win.querySelector(".window-titlebar");
     const resizeHandle = win.querySelector(".window-resize-handle");
 
-    // Clicking anywhere on the window brings it to front.
+
     win.addEventListener("mousedown", () => bringToFront(win));
 
-    // --- Dragging ---
+    // ====== Dragging =======
     let dragging = false;
     let dragOffsetX = 0;
     let dragOffsetY = 0;
 
     titlebar.addEventListener("mousedown", (e) => {
-        // Ignore drags that start on a titlebar button (e.g. close).
+
         if (e.target.closest(".window-btn")) return;
 
         dragging = true;
@@ -130,7 +127,7 @@ function initWindow(win) {
         e.preventDefault();
     });
 
-    // --- Resizing ---
+    // ========== Resizing ==========
     let resizing = false;
     let resizeStartX = 0;
     let resizeStartY = 0;
@@ -153,7 +150,7 @@ function initWindow(win) {
             let newLeft = e.clientX - dragOffsetX;
             let newTop = e.clientY - dragOffsetY;
 
-            // Keep the window from being dragged fully off-screen.
+
             newLeft = Math.max(-win.offsetWidth + 80, Math.min(newLeft, window.innerWidth - 80));
             newTop = Math.max(0, Math.min(newTop, window.innerHeight - 40));
 
@@ -179,7 +176,7 @@ function initWindow(win) {
 
 document.querySelectorAll(".os-window").forEach(initWindow);
 
-// ======= Music =====
+// =========== Music ==========
 
 const musicLibrary = {
     lofi: [
@@ -260,3 +257,49 @@ function toggleLock() {
 }
 
 renderTrackRow(currentCategory);
+
+
+// ==================== Alarm =======================
+
+const alarmAudio = document.getElementById("alarmAudio");
+
+function switchAlarmMode(mode, btn) {
+    document.querySelectorAll(".alarm-modes .cat-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("alarm-clock-view").style.display = mode === "clock" ? "flex" : "none";
+    document.getElementById("alarm-timer-view").style.display = mode === "timer" ? "flex" : "none";
+}
+
+
+function ringAlarm() {
+    alarmAudio.currentTime = 0;
+    alarmAudio.play().catch(err => console.error("Alarm play failed", err));
+    document.getElementById("dismissAlarmBtn").style.display = "inline-block";
+}
+
+
+function dissAlarm() {
+    alarmAudio.pause();
+    alarmAudio.currentTime = 0;
+    document.getElementById("dismissAlarmBtn").style.display = "none";
+}
+
+
+
+// Clock Alarm
+let alarmTargetTime = null;
+let alarmFiredToday = false;
+
+function setClockAlarm() {
+    const val = document.getElementById("alarmTimeInput").value;
+    if (!val) return;
+    alarmTargetTime = val;
+    alarmFiredToday = false;
+    document.getElementById("alarmStatus").textContent = `Alarm set for ${val}`;
+}
+
+function cancelAlarm() {
+    alarmTargetTime = null;
+    alarmFiredToday = false;
+    document.getElementById("alarmStatus").textContent = "No Alarm Set"
+}
