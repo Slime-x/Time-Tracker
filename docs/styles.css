@@ -27,6 +27,11 @@ header {
     z-index: 1000;
 }
 
+
+a:visited {
+    color: inherit;
+}
+
 .logo img {
     width: 20%;
 }
@@ -40,8 +45,20 @@ header {
 .top-bar {
     display: flex;
     gap: 2rem;
+    color: inherit;
+    color: rgba(247, 244, 244, 0.692);
 }
 
+.header-btn {
+    color: white;
+    padding: 5px 10px;
+}
+
+.header-btn:hover {
+    color: rgba(0, 26, 255, 0.404);
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
 
 /* == Body == */
 
@@ -265,6 +282,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    backdrop-filter: blur(10px);
 }
 
 .music-categories {

@@ -16,20 +16,20 @@
 
         <ul class="top-bar">
             <li>
-                <a href="#" onclick="openWindow('stopwatch-window'); return false;">Timer </a>
+                <a class="header-btn" href="#" onclick="openWindow('stopwatch-window'); return false;">Timer </a>
             </li>
 
             <li>
 
-                <a href="#" onclick="openWindow('music-window'); return false;">Music</a>
+                <a class="header-btn" href="#" onclick="openWindow('music-window'); return false;">Music</a>
             </li>
 
             <li>
-                <a href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
+                <a class="header-btn" href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
             </li>
 
             <li>
-                <a href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
+                <a class="header-btn" href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
             </li>
 
 
@@ -105,6 +105,57 @@
         </div>
         <div class="window-resize-handle"></div>
     </div>
+
+
+    <!-- =========== Alarm =========== -->
+    <div id="alarm-window" class="os-window">
+        <div class="window-titlebar">
+            <span class="window-title">Alarm</span>
+            <div class="window-buttons">
+                <button class="window-btn" onclick="closeWindow('alarm-window')" aria-label="Close">&times;</button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div id="alarm-player">
+                <div class="alarm-modes">
+                    <button class="cat-btn active" id="alarmModeBtn"
+                        onclick="switchAlarmMode('clock', this)">Alarm</button>
+                    <button class="cat-btn" id="timerModeBtn" onclick="switchAlarmMode('timer', this)">Timer</button>
+                </div>
+
+                <!-- Clock-time alarm -->
+                <div id="alarm-clock-view" class="alarm-view">
+                    <input type="time" id="alarmTimeInput">
+                    <div class="alarm-actions">
+                        <button class="SWbtn" onclick="setClockAlarm()">Set Alarm</button>
+                        <button class="SWbtn" onclick="cancelAlarm()">Cancel</button>
+                    </div>
+                    <div id="alarmStatus" class="alarm-status">No alarm set</div>
+                </div>
+
+                <!-- Countdown timer -->
+                <div id="alarm-timer-view" class="alarm-view" style="display:none;">
+                    <div class="timer-inputs">
+                        <input type="number" id="timerHours" min="0" placeholder="HH">
+                        <input type="number" id="timerMinutes" min="0" placeholder="MM">
+                        <input type="number" id="timerSeconds" min="0" placeholder="SS">
+                    </div>
+                    <div id="timerDisplay">00:00:00</div>
+                    <div class="alarm-actions">
+                        <button class="SWbtn" onclick="startTimer()">Start</button>
+                        <button class="SWbtn" onclick="pauseTimer()">Pause</button>
+                        <button class="SWbtn" onclick="resetTimer()">Reset</button>
+                    </div>
+                </div>
+
+                <button id="dismissAlarmBtn" onclick="dismissAlarm()" style="display:none;">Dismiss Alarm</button>
+            </div>
+        </div>
+        <div class="window-resize-handle"></div>
+    </div>
+
+    <audio id="alarmAudio" src="music/alarm.mp3" loop></audio>
+
 
 
     <script src="index.js"></script>
