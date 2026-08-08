@@ -16,7 +16,7 @@
 
         <ul class="top-bar">
             <li>
-                <a class="header-btn" href="#" onclick="openWindow('stopwatch-window'); return false;">Timer </a>
+                <a class="header-btn" href="#" onclick="openWindow('stopwatch-window'); return false;">StopWatch</a>
             </li>
 
             <li>
@@ -25,11 +25,11 @@
             </li>
 
             <li>
-                <a class="header-btn" href="#" onclick="openWindow('alarm-window'); return false;"> Timer </a>
+                <a class="header-btn" href="#" onclick="openWindow('alarm-window'); return false;"> Alarm+</a>
             </li>
 
             <li>
-                <a class="header-btn" href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
+                <a class="header-btn" href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer</a>
             </li>
 
 
@@ -127,8 +127,8 @@
                 <div id="alarm-clock-view" class="alarm-view">
                     <input type="time" id="alarmTimeInput">
                     <div class="alarm-actions">
-                        <button class="SWbtn" onclick="setClockAlarm()">Set Alarm</button>
-                        <button class="SWbtn" onclick="cancelAlarm()">Cancel</button>
+                        <button class="SWbtn" id="startBtn" onclick="setClockAlarm()">Set Alarm</button>
+                        <button class="SWbtn" id="stopBtn" onclick="cancelAlarm()">Cancel</button>
                     </div>
                     <div id="alarmStatus" class="alarm-status">No alarm set</div>
                 </div>

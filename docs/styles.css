@@ -423,7 +423,7 @@ body {
 
 #alarm-window {
     min-width: 300px;
-    min-height: 250px;
+    min-height: 295px;
 }
 
 
@@ -449,6 +449,23 @@ body {
     align-items: center;
 }
 
+#alarmTimeInput {
+    background-color: rgba(255, 255, 255, 0.219);
+    color: White;
+    padding: 2px 5px;
+    font-size: 2rem;
+    border: 5px solid rgba(255, 255, 255, 0.527);
+    border-radius: 5px;
+}
+
+.SWbtn {
+    padding: 0.3rem 1rem;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    background-color: rgba(245, 245, 245, 0.295);
+}
+
 .timer-inputs {
     display: flex;
     gap: 0.5rem;
@@ -459,6 +476,7 @@ body {
     background-color: rgba(104, 2, 2, 0.212);
     border: 2px solid rgba(255, 0, 0, 0.082);
     padding: 1.25px 5px;
+    border-radius: 7px;
     color: White;
 }
 
@@ -472,12 +490,6 @@ body {
     gap: 0.5rem;
 }
 
-.SWbtn {
-    padding: 0.3rem 1rem;
-    border: none;
-    border-radius: 7px;
-    font-weight: bold;
-}
 
 #pauseBtn {
     background-color: rgba(245, 245, 245, 0.185);
@@ -487,4 +499,14 @@ body {
 .alarm-status {
     font-family: monospace;
     font-size: 0.9rem;
+}
+
+#dismissAlarmBtn {
+    background-color: rgba(128, 0, 0, 0.288);
+    color: rgba(255, 47, 47, 0.664);
+    border: none;
+    font-weight: bold;
+    padding: 5px 5px;
+    border-radius: 5px;
+    margin-top: auto;
 }
