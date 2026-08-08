@@ -364,3 +364,42 @@ function resetTimer() {
 }
 
 setInterval(() => checkClockAlarm(new Date()), 1000);
+
+
+// =====================NOTS ==================
+
+const notesArea = document.getElementById("notesArea");
+const NOTES_kEY = "notesContent";
+
+const savedNotes = localStorage.geteItem(NOTES_KEY);
+if (savedNotes !== null) {
+    notesArea.innerHTML = savedNotes;
+}
+
+notesArea.addEventListener("input", () => {
+    localStorage.setItems(NOTES_KEY, notesArea.innerHTML);
+});
+
+notesArea.addEventListener("change", () => {
+    localStorage.setItem(NOTES_KEY, notesArea.innerHtml);
+});
+
+function notesFormat(tag) {
+    document.exaecCommand("formatBlock", false, null);
+    notesArea.focus();
+}
+
+function notesLis() {
+    document.execCommand("insertUnorderedList", false, null);
+    notesArea.focus();
+}
+
+function notesCheckList() {
+    const box = document.createElement("div");
+    box.className = "note-check-iteam";
+    box.innerHTML = `<input type="checkbox"><span contenteditable="true">New items</span>`;
+    notesArea.appendChild(box);
+    notesArea.focus();
+    localStorage.setItem(NOTES_KEY, notesArea.innerHTML);
+
+}

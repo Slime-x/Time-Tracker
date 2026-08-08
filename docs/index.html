@@ -29,7 +29,7 @@
             </li>
 
             <li>
-                <a class="header-btn" href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer</a>
+                <a class="header-btn" href="#" onclick="openWindow('notes-window'); return false;"> Timer</a>
             </li>
 
 
@@ -155,6 +155,32 @@
     </div>
 
     <audio id="alarmAudio" src="music/prom_queen.mp3" loop></audio>
+
+
+
+    <!--- =============Notess ==============-->
+    <div id="notes-window" class="os-window">
+        <div class="window-titlebar">
+            <span class="window-title">Notes</span>
+            <div class="window-buttons">
+                <button class="window-btn" onclick="closeWindow('notes-window')" aria-label="Close">&times;</button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div id="notes-playh">
+                <div class="notes-toolbar">
+                    <button class="notes-btn" onclick="notesFormat('h1')">H1</button>
+                    <button class="notes-btn" onclick="notesFormat('h2')">H2</button>
+                    <button class="notes-btn" onclick="notesFormat('h3')">H3</button>
+                    <button class="notes-btn" onclick="notesFormat('p')">P</button>
+                    <button class="notes-btn" onclick="noteslist()">lList</button>
+                    <button class="notes-btn" onclick="notesChecklist('h1')">Check</button>
+                </div>
+                <div id="notesArea" contenteditable="True"></div>
+            </div>
+        </div>
+        <div class="window-resize-handel"></div>
+    </div>
 
 
 
