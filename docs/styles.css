@@ -420,6 +420,13 @@ body {
 
 /* ======= Alarm ========= */
 
+
+#alarm-window {
+    min-width: 300px;
+    min-height: 250px;
+}
+
+
 #alarm-player {
     display: flex;
     flex-direction: column;
@@ -427,17 +434,18 @@ body {
     padding: 1rem;
     gap: 1rem;
     color: white;
+    backdrop-filter: blur(10px);
 }
 
 .alarm-modes {
     display: flex;
-    gap: 0.75rem;
+    justify-content: space-between;
 }
 
 .alarm-view {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -446,8 +454,12 @@ body {
     gap: 0.5rem;
 }
 
-.timer-inputs inputs {
+.timer-inputs input {
     width: 4rem;
+    background-color: rgba(104, 2, 2, 0.212);
+    border: 2px solid rgba(255, 0, 0, 0.082);
+    padding: 1.25px 5px;
+    color: White;
 }
 
 #timerDisplay {
@@ -460,7 +472,19 @@ body {
     gap: 0.5rem;
 }
 
-alarm-status {
+.SWbtn {
+    padding: 0.3rem 1rem;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+#pauseBtn {
+    background-color: rgba(245, 245, 245, 0.185);
+    color: rgba(255, 255, 255, 0.808);
+}
+
+.alarm-status {
     font-family: monospace;
     font-size: 0.9rem;
 }

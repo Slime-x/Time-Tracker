@@ -278,7 +278,7 @@ function ringAlarm() {
 }
 
 
-function dissAlarm() {
+function dismissAlarm() {
     alarmAudio.pause();
     alarmAudio.currentTime = 0;
     document.getElementById("dismissAlarmBtn").style.display = "none";
@@ -303,3 +303,64 @@ function cancelAlarm() {
     alarmFiredToday = false;
     document.getElementById("alarmStatus").textContent = "No Alarm Set"
 }
+
+function checkClockAlarm(now) {
+    if (!alarmTargetTime || alarmFiredToday) return;
+    const current = now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes().toString().padStart(2, "0");
+    if (current === alarmTargetTime) {
+        alarmFiredToday = true;
+        ringAlarm();
+    }
+}
+
+// ======= Countdoen Timer ========
+
+let timerRemaining = 0;
+let timerInterval = null;
+
+function formatTimer(totalSeconds) {
+    const hours = Math.floor(totalSeconds / 3600).toString().padStart(2, "0");
+    const minutes = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, "0");
+    const seconds = Math.floor(totalSeconds % 60).toString().padStart(2, "0");
+    return `${hours}:${minutes}:${seconds}`;
+}
+
+function renderTimer() {
+    document.getElementById("timerDisplay").textContent = formatTimer(Math.max(timerRemaining, 0));
+}
+
+function startTimer() {
+    if (timerInterval) return;
+
+    if (timerRemaining <= 0) {
+        const h = parseInt(document.getElementById("timerHours").value) || 0;
+        const m = parseInt(document.getElementById("timerMinutes").value) || 0;
+        const s = parseInt(document.getElementById("timerSeconds").value) || 0;
+        timerRemaining = h * 3600 + m * 60 + s;
+        if (timerRemaining <= 0) return;
+    }
+
+    timerInterval = setInterval(() => {
+        timerRemaining -= 1;
+        renderTimer();
+        if (timerRemaining <= 0) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            ringAlarm();
+        }
+    }, 1000);
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timerRemaining = 0;
+    renderTimer();
+}
+
+setInterval(() => checkClockAlarm(new Date()), 1000);

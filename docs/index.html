@@ -25,7 +25,7 @@
             </li>
 
             <li>
-                <a class="header-btn" href="#" onclick="openWindow('stopwatch-window'); return false;"> Timer </a>
+                <a class="header-btn" href="#" onclick="openWindow('alarm-window'); return false;"> Timer </a>
             </li>
 
             <li>
@@ -142,9 +142,9 @@
                     </div>
                     <div id="timerDisplay">00:00:00</div>
                     <div class="alarm-actions">
-                        <button class="SWbtn" onclick="startTimer()">Start</button>
-                        <button class="SWbtn" onclick="pauseTimer()">Pause</button>
-                        <button class="SWbtn" onclick="resetTimer()">Reset</button>
+                        <button id="startBtn" class="SWbtn" onclick="startTimer()">Start</button>
+                        <button id="pauseBtn" class="SWbtn" onclick="pauseTimer()">Pause</button>
+                        <button id="resetBtn" class="SWbtn" onclick="resetTimer()">Reset</button>
                     </div>
                 </div>
 
@@ -154,7 +154,7 @@
         <div class="window-resize-handle"></div>
     </div>
 
-    <audio id="alarmAudio" src="music/alarm.mp3" loop></audio>
+    <audio id="alarmAudio" src="music/prom_queen.mp3" loop></audio>
 
 
 
