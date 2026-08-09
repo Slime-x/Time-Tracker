@@ -369,9 +369,9 @@ setInterval(() => checkClockAlarm(new Date()), 1000);
 // =====================NOTS ==================
 
 const notesArea = document.getElementById("notesArea");
-const NOTES_kEY = "notesContent";
+const NOTES_KEY = "notesContent";
 
-const savedNotes = localStorage.geteItem(NOTES_KEY);
+const savedNotes = localStorage.getItem(NOTES_KEY);
 if (savedNotes !== null) {
     notesArea.innerHTML = savedNotes;
 }
@@ -381,20 +381,20 @@ notesArea.addEventListener("input", () => {
 });
 
 notesArea.addEventListener("change", () => {
-    localStorage.setItem(NOTES_KEY, notesArea.innerHtml);
+    localStorage.setItem(NOTES_KEY, notesArea.innerHTML);
 });
 
 function notesFormat(tag) {
-    document.exaecCommand("formatBlock", false, null);
+    document.execCommand("formatBlock", false, tag);
     notesArea.focus();
 }
 
-function notesLis() {
+function notesList() {
     document.execCommand("insertUnorderedList", false, null);
     notesArea.focus();
 }
 
-function notesCheckList() {
+function notesChecklist() {
     const box = document.createElement("div");
     box.className = "note-check-iteam";
     box.innerHTML = `<input type="checkbox"><span contenteditable="true">New items</span>`;
