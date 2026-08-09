@@ -18,7 +18,7 @@ Just an clock! it should sync with the time on your time-zone but idk. It works 
 <h2> Stop Watch </h2>
 A simple Stop watch that can be used to know how much you have worked in a project. Pretty useful actually!! 
 <br>
-<h2>Music<h2>
+<h2><u>Music</u></h2>
 A muic player. I could have made a system where you can impliment your own songs but you will just get lost in the music. So I only made it have the music that i kept which arent that domapine hitting
 <br>
 <h2> Alarm/Timer </h2>

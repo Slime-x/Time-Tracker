@@ -510,3 +510,48 @@ body {
     border-radius: 5px;
     margin-top: auto;
 }
+
+
+/* ============== NOTESS ===============*/
+
+#notes-window {
+    min-width: 320px;
+    min-height: 260px;
+}
+
+#notes-player {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: white;
+}
+
+.notes-toolbar {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.notes-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 0.3rem 0.67rem;
+    cursor: pointer;
+}
+
+#notesArea {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    outline: none;
+}
+
+.note-check-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.25rem 0;
+}
