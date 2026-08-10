@@ -1,8 +1,10 @@
 Hey! Welcome to my Time-Tracking project. 
 
-Live at: 
+Live at: slime-x.github.io/Time-Tracker/
 
-Tutorial videos:
+Tutorial videos: 
+https://youtu.be/2glfqa-ZbNw?si=vKOOLovlvGjB6Wxp 
+
 
 
 <hr>
