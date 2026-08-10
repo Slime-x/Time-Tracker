@@ -180,27 +180,28 @@ document.querySelectorAll(".os-window").forEach(initWindow);
 
 const musicLibrary = {
     lofi: [
-        { title: "Prom Queen", src: "music/prom_queen.mp3", cover: "music/pic/1.jpg" },
-        { title: "Here With Me", src: "music/here_with_me.mp3", cover: "music/pic/1.jpg" },
-        { title: "Could I get What I want", src: "music/i_want.mp3", cover: "music/pic/1.jpg" },
+        { title: "Lofi 1", src: "music/Lofi1.mp3", cover: "music/pic/Lofi 1.jpg" },
+        { title: "Lofi 2", src: "music/Lofi2.mp3", cover: "music/pic/Lofi 2.jpg" },
+        { title: "Lofi 3", src: "music/Lofi3.mp3", cover: "music/pic/Lofi 3.jpg" },
     ],
 
     ambient: [
-        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 1", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Ambient 1", src: "music/Ambient 1.mp3", cover: "music/pic/Ambient 1.jpg" },
+        { title: "Ambient 2", src: "music/Ambient 2.mp3", cover: "music/pic/Ambient 2.jpg" },
+        { title: "Ambient 3", src: "music/Ambient 3.mp3", cover: "music/pic/Ambient 3.jpg" },
     ],
 
     smth1: [
-        { title: "Title 2", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 2", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 2", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Central Cee", src: "music/Rap 1.mp3", cover: "music/pic/Rap 1.jpg" },
+        { title: "Drake", src: "music/Rap 2.mp3", cover: "music/pic/Rap 2.jpg" },
+        { title: "Kendrick", src: "music/Rap 3.mp3", cover: "music/pic/Rap 3.jpg" },
+        { title: "Kanye", src: "music/Rap 4.mp3", cover: "music/pic/Rap 4.jpg" },
     ],
 
     smth2: [
-        { title: "Title 3", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 3", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
-        { title: "Title 3", src: "music/idk-lofi.mp3", cover: "music/pic/1.jpg" },
+        { title: "Soon!", src: "music/idk 1.mp3", cover: "music/pic/idk 1.jpg" },
+        { title: "Soon!", src: "music/idk 2.mp3", cover: "music/pic/idk 2.jpg" },
+        { title: "Soon!", src: "music/idk 3.mp3", cover: "music/pic/idk 3.jpg" },
     ]
 
     // If you wanna add more categories just add ',' of ] in smth2 i.e  ], at last then follow the same thing i did on top. and the last category doesnt need ','    
